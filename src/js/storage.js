@@ -1,7 +1,3 @@
-class Storage {
-  constructor() {
-
-  }
-}
-
-export default new Storage();
+const getNotes = () => {
+  return JSON.parse(localStorage.getItem("notes")) || [];
+};
