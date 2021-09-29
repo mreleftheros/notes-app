@@ -1,2 +1,63 @@
 @import "defaults";
 @import "mixins";
+
+.main {
+  background: linear-gradient(rgb(151, 151, 255), rgb(211, 211, 255));
+  min-height: 100vh;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+    background: rgba(255, 255, 255, .5);
+    padding: .5rem;
+
+    &__new-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: green;
+      border: 3px transparent;
+      border: none;
+      padding: .5rem 1rem;
+      cursor: pointer;
+      border-radius: 1rem;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: solid 3px;
+        left: 0;
+        top: 0;
+        border-radius: 1rem;
+        transform: translate(-15rem);
+        transition: transform .15s ease-out;
+      }
+
+      &:hover::before {
+        transform: translate(0);
+      }
+
+      &__icon {
+        position: relative;
+        z-index: 1;
+        display: block;
+        font-size: 2rem;
+        margin-right: .4rem;
+      }
+
+      &__text {
+        position: relative;
+        z-index: 1;
+        display: block;
+        font-size: 2rem;
+        color: #fff;
+        text-shadow: 1px 1px 3px #000;
+      }
+    }
+  }
+}

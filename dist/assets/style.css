@@ -14,3 +14,58 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
 }
+
+.main {
+  background: linear-gradient(#9797ff, #d3d3ff);
+  min-height: 100vh;
+}
+.main__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15vh;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.5rem;
+}
+.main__header__new-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: green;
+  border: 3px transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.main__header__new-btn::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: solid 3px;
+  left: 0;
+  top: 0;
+  border-radius: 1rem;
+  transform: translate(-15rem);
+  transition: transform 0.15s ease-out;
+}
+.main__header__new-btn:hover::before {
+  transform: translate(0);
+}
+.main__header__new-btn__icon {
+  position: relative;
+  z-index: 1;
+  display: block;
+  font-size: 2rem;
+  margin-right: 0.4rem;
+}
+.main__header__new-btn__text {
+  position: relative;
+  z-index: 1;
+  display: block;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
+}
