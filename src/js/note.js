@@ -27,6 +27,13 @@ class Note {
 
     return updateNotes();
   }
+  deleteNote(index) {
+    if (index < this.notes.length) {
+      this.notes.splice(index, 1);
+    }
+
+    return updateNotes();
+  }
 }
 
 export default new Note();

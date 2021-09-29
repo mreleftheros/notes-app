@@ -57,22 +57,29 @@ class Ui {
     this.notesContainer.appendChild(divElement);
   }
   handleNotesContainerClick(e) {
+    let noteElement = e.target.parentElement.parentElement.parentElement.parentElement;
+    let index = noteElement.getAttribute("data-note");
+
     // click edit
     if (e.target.tagName === "SPAN" && e.target.classList.contains("edit")) {
-      let noteElement = e.target.parentElement.parentElement.parentElement.parentElement;
-      let index = noteElement.getAttribute("data-note");
-      let text;
-
-      if (noteElement.classList.contains("locked")) {
+      if (noteElement.classList.contains("locked")) { // edit
         noteElement.classList.remove("locked");
         e.target.innerHTML = this.icons.save;
       }
       else { // save
-        text = noteElement.lastElementChild.firstElementChild.value;
+        let text = noteElement.lastElementChild.firstElementChild.value;
+        let paragraph = noteElement.lastElementChild.lastElementChild;
+        paragraph.innerText = text;
         noteElement.classList.add("locked");
         e.target.innerHTML = this.icons.edit;
         return note.saveNote(text, index);
       }
+    }
+
+    // click delete
+    if (e.target.tagName === "SPAN" && e.target.classList.contains("delete")) {
+      note.deleteNote(index);
+      noteElement.remove();
     }
   }
 }
