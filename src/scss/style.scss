@@ -4,6 +4,7 @@
 .main {
   background: linear-gradient(rgb(151, 151, 255), rgb(211, 211, 255));
   min-height: 100vh;
+  overflow-x: hidden;
 
   // HEADER
   &__header {
@@ -107,7 +108,99 @@
   // NOTES CONTAINER
   &__notes-container {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     width: 100vw;
     padding: 1rem;
+
+    &__note.locked &__note {
+      &__body {
+        &__textarea {
+          display: none;
+        }
+
+        &__text {
+          display: block;
+        }
+      }
+    }
+
+    &__note {
+      display: flex;
+      flex-direction: column;
+      background: rgb(199, 160, 160);
+      width: 25rem;
+      height: 30rem;
+      border-radius: .5rem;
+      margin: .5rem;
+      
+      &__header {
+        position: relative;
+        background: green;
+        border-top-right-radius: .5rem;
+        border-top-left-radius: .5rem;
+        padding: .5rem;
+        height: 4rem;
+
+        &__tools {
+          position: absolute;
+          display: flex;
+          justify-content: space-around;
+          top: 50%;
+          left: 100%;
+          transform: translate(-100%, -50%);
+          width: 10rem;
+
+          &__btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 2rem;
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+
+            &:last-of-type {
+              transform: translateY(3px);
+            }
+
+            &__icon {
+              display: block;
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+
+      &__body {
+        flex: 1;
+        padding: .5rem;
+        font-size: 2rem;
+        letter-spacing: .1rem;
+
+        &__textarea {
+          display: block;
+          border: 0;
+          padding: .5rem;
+          width: 100%;
+          height: 100%;
+          resize: none;
+          outline: none;
+          border-bottom-left-radius: .5rem;
+          border-bottom-right-radius: .5rem;
+          overflow: auto;
+        }
+
+        &__text {
+          display: none;
+          padding: .5rem;
+          background: rgb(226, 226, 226);
+          width: 100%;
+          height: 100%;
+          border-bottom-left-radius: .5rem;
+          border-bottom-right-radius: .5rem;
+        }
+      }
+    }
   }
 }
