@@ -8,13 +8,14 @@ class Note {
   }
   init() {
     this.setNotes();
+
+    this.notes.forEach(note => ui.createNote(undefined, note));
   }
   setNotes() {
     // get notes or empty array from localStorage
     const notes = getNotes();
 
     this.notes = [...notes];
-    this.notesIndex = notes.length;
   }
 }
 

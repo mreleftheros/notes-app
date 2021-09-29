@@ -138,7 +138,7 @@ body {
   top: 50%;
   left: 100%;
   transform: translate(-100%, -50%);
-  width: 10rem;
+  width: 5rem;
 }
 .main__notes-container__note__header__tools__btn {
   display: flex;
