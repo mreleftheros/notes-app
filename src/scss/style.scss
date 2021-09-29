@@ -1,6 +1,10 @@
 @import "defaults";
 @import "mixins";
 
+.main.dark {
+  background: linear-gradient(black, rgb(0, 0, 0));
+}
+
 .main {
   background: linear-gradient(rgb(151, 151, 255), rgb(211, 211, 255));
   min-height: 100vh;
@@ -114,6 +118,7 @@
     }
 
     &__note {
+      position: relative;
       display: flex;
       flex-direction: column;
       background: rgb(199, 160, 160);
@@ -121,6 +126,16 @@
       height: 30rem;
       border-radius: .5rem;
       margin: 1rem;
+
+      &::before {
+        content: "\1F517";
+        position: absolute;
+        z-index: 3;
+        top: -1.5rem;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: 3rem;
+      }
       
       &__header {
         display: flex;

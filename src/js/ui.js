@@ -2,6 +2,7 @@ import note from "./note";
 
 class Ui {
   constructor() {
+    this.main = document.getElementById("main");
     this.newBtn = document.getElementById("newBtn");
     this.lightBtn = document.getElementById("lightBtn");
     this.notesContainer = document.getElementById("notesContainer");
@@ -14,6 +15,7 @@ class Ui {
   init() {
     this.newBtn.addEventListener("click", e => this.createNote(e, undefined));
     this.notesContainer.addEventListener("click", e => this.handleNotesContainerClick(e));
+    this.lightBtn.addEventListener("click", () => this.toggleLight());
   }
   createNote(e, text) {
     const divElement = document.createElement("div");
@@ -22,6 +24,8 @@ class Ui {
     let index = note.notesIndex + 1;
     note.notesIndex++;
     let icon;
+    let randomDeg = Math.floor((Math.random() - .5) * 10);
+    divElement.style.transform = `rotate(${randomDeg}deg`;
 
     if (e === undefined) {
       divElement.classList.add("locked");
@@ -81,6 +85,9 @@ class Ui {
       note.deleteNote(index);
       noteElement.remove();
     }
+  }
+  toggleLight() {
+    this.main.classList.toggle("dark");
   }
 }
 
