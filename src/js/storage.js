@@ -1,13 +1,11 @@
+import note from "./note";
+
 const getNotes = () => {
   return JSON.parse(localStorage.getItem("notes")) || [];
 };
 
-const saveNote = text => {
-  const notes = getNotes();
-
-  notes.push(text);
-
-  localStorage.setItem("notes", JSON.stringify(notes));
+const updateNotes = () => {
+  return localStorage.setItem("notes", JSON.stringify(note.notes));
 }
 
-export { getNotes, saveNote };
+export { getNotes, updateNotes };

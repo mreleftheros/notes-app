@@ -1,9 +1,9 @@
 import ui from "./ui";
-import { getNotes } from "./storage";
+import { getNotes, updateNotes } from "./storage";
 
 class Note {
   constructor() {
-    this.notes;
+    this.notes = [];
     this.notesIndex = 0;
   }
   init() {
@@ -12,10 +12,20 @@ class Note {
     this.notes.forEach(note => ui.createNote(undefined, note));
   }
   setNotes() {
-    // get notes or empty array from localStorage
+    // get notes from localStorage
     const notes = getNotes();
 
     this.notes = [...notes];
+  }
+  saveNote(text, index) {
+    if (index < this.notes.length) {
+      this.notes.splice(index, 1, text);
+    }
+    else {
+      this.notes.push(text);
+    }
+
+    return updateNotes();
   }
 }
 

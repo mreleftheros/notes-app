@@ -1,5 +1,4 @@
 import note from "./note";
-import { saveNote } from "./storage";
 
 class Ui {
   constructor() {
@@ -60,17 +59,19 @@ class Ui {
   handleNotesContainerClick(e) {
     // click edit
     if (e.target.tagName === "SPAN" && e.target.classList.contains("edit")) {
-      let note = e.target.parentElement.parentElement.parentElement.parentElement;
+      let noteElement = e.target.parentElement.parentElement.parentElement.parentElement;
+      let index = noteElement.getAttribute("data-note");
+      let text;
 
-      if (note.classList.contains("locked")) {
-        note.classList.remove("locked");
+      if (noteElement.classList.contains("locked")) {
+        noteElement.classList.remove("locked");
         e.target.innerHTML = this.icons.save;
       }
-      else {
-        let text = note.lastElementChild.firstElementChild.value;
-        note.classList.add("locked");
+      else { // save
+        text = noteElement.lastElementChild.firstElementChild.value;
+        noteElement.classList.add("locked");
         e.target.innerHTML = this.icons.edit;
-        return saveNote(text);
+        return note.saveNote(text, index);
       }
     }
   }
