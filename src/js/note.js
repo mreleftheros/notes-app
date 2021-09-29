@@ -1,15 +1,20 @@
-import Ui from "./ui";
+import ui from "./ui";
+import { getNotes } from "./storage";
 
 class Note {
   constructor() {
-    this.notes = [];
-    this.noteIndex = 0;
+    this.notes;
+    this.notesIndex = 0;
   }
   init() {
-
+    this.setNotes();
   }
   setNotes() {
-    const notes = [];
+    // get notes or empty array from localStorage
+    const notes = getNotes();
+
+    this.notes = [...notes];
+    this.notesIndex = notes.length;
   }
 }
 
