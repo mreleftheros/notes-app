@@ -19,6 +19,8 @@ class Ui {
   createNote(e, text) {
     const divElement = document.createElement("div");
     divElement.classList.add("main__notes-container__note");
+    divElement.setAttribute("data-note", note.notesIndex);
+    note.notesIndex++;
 
     if (e === undefined) {
       divElement.classList.add("locked");
