@@ -20,6 +20,7 @@ body {
   min-height: 100vh;
 }
 .main__header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,4 +68,35 @@ body {
   font-size: 2rem;
   color: #fff;
   text-shadow: 1px 1px 3px #000;
+}
+.main__header__tools {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  top: 50%;
+  left: 100%;
+  transform: translate(-100%, -50%);
+  width: 10rem;
+}
+.main__header__tools__view-btn {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.main__header__tools__view-btn__icon {
+  font-size: 2.5rem;
+}
+.main__header__tools__light-btn {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.main__header__tools__light-btn__icon {
+  font-size: 2.5rem;
+}
+@media only screen and (min-width: 768px) {
+  .main__header__tools__view-btn {
+    display: inline-block;
+  }
 }
