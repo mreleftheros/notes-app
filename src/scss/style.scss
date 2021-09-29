@@ -71,19 +71,7 @@
       top: 50%;
       left: 100%;
       transform: translate(-100%, -50%);
-      width: 10rem;
-
-      // view-btn
-      &__view-btn {
-        display: none;
-        background: none;
-        border: 0;
-        cursor: pointer;
-
-        &__icon {
-          font-size: 2.5rem;
-        }
-      }
+      width: 5rem;
 
       // light-btn
       &__light-btn {
@@ -111,7 +99,7 @@
     justify-content: center;
     flex-wrap: wrap;
     width: 100vw;
-    padding: 1rem;
+    padding: .5rem;
 
     &__note.locked &__note {
       &__body {
@@ -132,24 +120,27 @@
       width: 25rem;
       height: 30rem;
       border-radius: .5rem;
-      margin: .5rem;
+      margin: 1rem;
       
       &__header {
-        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         background: green;
         border-top-right-radius: .5rem;
         border-top-left-radius: .5rem;
         padding: .5rem;
         height: 4rem;
 
+        &__title {
+          letter-spacing: .1rem;
+          flex: 1;
+        }
+
         &__tools {
-          position: absolute;
+          flex-basis: 7rem;
           display: flex;
           justify-content: space-around;
-          top: 50%;
-          left: 100%;
-          transform: translate(-100%, -50%);
-          width: 5rem;
 
           &__btn {
             display: flex;
@@ -158,13 +149,15 @@
             height: 2rem;
             background: transparent;
             border: 0;
-            cursor: pointer;
-
+            pointer-events: none;
+            
             &:last-of-type {
               transform: translateY(3px);
             }
-
+            
             &__icon {
+              pointer-events: all;
+              cursor: pointer;
               display: block;
               font-size: 2rem;
             }
@@ -175,10 +168,11 @@
       &__body {
         flex: 1;
         padding: .5rem;
-        font-size: 2rem;
-        letter-spacing: .1rem;
 
         &__textarea {
+          font-size: 2rem;
+          font-family: arial;
+          appearance: none;
           display: block;
           border: 0;
           padding: .5rem;
@@ -192,6 +186,7 @@
         }
 
         &__text {
+          font-size: 2rem;
           display: none;
           padding: .5rem;
           background: rgb(226, 226, 226);
